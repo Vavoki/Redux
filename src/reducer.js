@@ -18,10 +18,10 @@ const removeItemHandler = (state, payload) => {
 };
 
 const editItemHandler = (state, payload) => {
-    const updatedItems = state.items.map(item => {
-        if(item.id == payload.id) {
-            item.value = payload.data;
-        }
+    const updatedItems = state.items.map((item) => {
+        if(item.id === payload.id) {
+            return payload.data }
+        else { return item;}
     });
 
     return { ...state, items: updatedItems };

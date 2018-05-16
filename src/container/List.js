@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     removeItem,
-    editItem
+    editItem,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);
