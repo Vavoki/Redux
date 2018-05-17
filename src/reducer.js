@@ -1,8 +1,3 @@
-const INIT = {
-    items: [],
-    other: 'test text',
-};
-
 const addItemHandler = (state, payload) => {
     const itemData = {id: Math.random(), value: payload, done: false};
 
@@ -20,14 +15,25 @@ const removeItemHandler = (state, payload) => {
 const editItemHandler = (state, payload) => {
     const updatedItems = state.items.map((item) => {
         if(item.id === payload.id) {
-            return payload.data }
+            return {...item, value : payload.data};
+        }
         else { return item;}
     });
 
     return { ...state, items: updatedItems };
 };
+const toogleItemHandler = (state, payload) => {
+    const updatedItems = state.items.map((item) => {
+        if(item.id === payload.id) {
+            return {...item, done : !item.done }
+            }
+        else { return item;}
+    });
 
-export default (state = INIT, action) => {
+    return { ...state, items: updatedItems };
+}
+
+export default (state = [], action) => {
     const { type, payload } = action;
 
     switch(type) {
@@ -40,6 +46,9 @@ export default (state = INIT, action) => {
 
         case 'EDIT_ITEM':
             return editItemHandler(state, payload);
+
+        case 'TOGGLE_CHECKED':
+            return toogleItemHandler(state, payload);
 
         default:
             return state;

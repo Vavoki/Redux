@@ -4,9 +4,7 @@ import App from "../componentApp/todoApp";
 import configureStore from '../../configureStore';
 import './style.css';
 
-const initialItems = [
-    {id: 0, value: 'Learn ReactJS', done: false},
-];
+const initialItems = [];
 
 const store = configureStore({ items: initialItems });
 

@@ -12,3 +12,8 @@ export const editItem = (data, id) => ({
     type: 'EDIT_ITEM',
     payload: { id, data },
 });
+
+export  const toggleItem = (id) => ({
+    type: 'TOGGLE_CHECKED',
+    payload: {id},
+});

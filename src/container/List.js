@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { removeItem, editItem} from '../action/action';
+import { removeItem, editItem, toggleItem} from '../action/action';
 
 import List from '../components/componentTodo/Todo';
 
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     removeItem,
     editItem,
+    toggleItem,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

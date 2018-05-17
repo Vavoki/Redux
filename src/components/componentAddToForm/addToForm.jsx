@@ -2,26 +2,21 @@ import React, { Component } from 'react';
 
 
 export default class AddForm extends Component {
-    componentDidMount() {
-        this.refs.itemValue.focus();
+
+    addTodo = () => {
+        const str = this.input.value.trim();
+        this.props.addItem(str);
+        this.input.value = " ";
+
     }
-
-    onSubmit = (event) => {
-        event.preventDefault();
-        const value = this.refs.itemValue.value;
-
-        if(value) {
-            this.props.addItem(value);
-            this.refs.form.reset();
-        }
-    }
-
-    render () {
+    render() {
         return (
-            <form ref='form' onSubmit={this.onSubmit}>
-                <input type='text' ref='itemValue' className='form-control input' />
-                <button type='submit' className='btn btn-default'>Add item</button>
-            </form>
+
+            <div className="wrapper ">
+                <input   className="input" ref = { (node) => this.input = node }  />
+                <button className="button"  onClick={this.addTodo}>newToDO</button>
+            </div>
         );
-    }
+    };
+
 }

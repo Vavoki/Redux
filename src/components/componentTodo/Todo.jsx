@@ -4,7 +4,7 @@ import ListItem from '../componentTodoItems/todoItems';
 import './style.css';
 
 export default function TodoList(props) {
-    const { items, removeItem, editItem } = props;
+    const { items, removeItem, editItem, toggleItem } = props;
     const itemsList = items.map((item) => {
         return (
             <ListItem
@@ -12,6 +12,7 @@ export default function TodoList(props) {
                 item={item}
                 removeItem={removeItem}
                 editItem={editItem}
+                toggleItem={toggleItem}
             />
         );
     });
